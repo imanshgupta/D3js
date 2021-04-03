@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>SVG</title>
+</head>
+
+<body>
+
+    <script>
+        data = [20, 40]
+        var svg = d3.select("body").append("svg").attr("width", "1000").attr("height", "1000");
+        var bar1 = svg.append("rect").data(data)
+            .attr("width", "10").attr("height", "10")
+            .attr("x", "100").attr("y", "20")
+            .attr("fill", "blue");
+        var bar2 = svg.append("rect")
+            .attr("width", "10").attr("height", "10")
+            .attr("x", "100").attr("y", "50");
+
+        update()
+        function update() {
+            bar1.transition().ease(d3.easeBounce).duration(2000).attr("width", (data[0] * 50) / 100 + 100);
+            bar2.transition().ease(d3.easeBounce).duration(2000).delay(2000).attr("width", (data[1] * 50) / 100 + 100)
+
+        }
+    </script>
+</body>
+
+</html>
