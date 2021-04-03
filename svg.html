@@ -20,12 +20,12 @@
             .attr("fill", "blue");
         var bar2 = svg.append("rect")
             .attr("width", "10").attr("height", "10")
-            .attr("x", "100").attr("y", "50");
+            .attr("x", "100").attr("y", "100");
 
         update()
         function update() {
             bar1.transition().ease(d3.easeBounce).duration(2000).attr("width", (data[0] * 50) / 100 + 100);
-            bar2.transition().ease(d3.easeBounce).duration(2000).delay(2000).attr("width", (data[1] * 50) / 100 + 100)
+            bar2.transition().ease(d3.easeBounce).duration(2000).delay(2000).attr("width", (data[1] * 50) / 100 + 100);
 
         }
     </script>

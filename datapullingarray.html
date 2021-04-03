@@ -15,7 +15,7 @@
     <h1></h1>
     <script>
         values = [1, 2, 3]
-        d3.select("body").selectAll("h1").data(values).text(function (d, i) {
+        d3.select("body").selectAll("h1").data(values).text(function (d) {
             return d
         });
 
