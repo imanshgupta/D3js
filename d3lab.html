@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,10 +20,16 @@
         scale = 20
         height = 30
 
-        d = [10, 20, 30, 40, 50]
+        d = [10, 15, 20, 25]
 
-        var svg = d3.select("body").append(svg).attr("width", width).attr("height", height * d.length);
-        var bar = svg.selectAll("g").append("g").data(d).enter()
+        var svg = d3.select("body").append("svg").attr("width", width).attr("height", height * d.length);
+        var bar = svg.selectAll("g").data(d).enter().append("g").append("rect").attr("height", "10").attr("width", function height(d, i) {
+            return d * scale
+        }).attr("fill", "blue").attr("transform", function (d, i) {
+
+            return "translate(0," + i * height + ")";
+
+        });
     </script>
 </body>
 
