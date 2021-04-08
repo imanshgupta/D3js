@@ -16,16 +16,16 @@
         var svg = d3.select("body").append("svg").attr("width", "1000").attr("height", "1000");
         var bar1 = svg.append("rect").data(data)
             .attr("width", "10").attr("height", "10")
-            .attr("x", "100").attr("y", "20")
+            .attr("x", "100").attr("y", "100")
             .attr("fill", "blue");
         var bar2 = svg.append("rect")
             .attr("width", "10").attr("height", "10")
-            .attr("x", "100").attr("y", "100");
+            .attr("x", "120").attr("y", "100");
 
         update()
         function update() {
-            bar1.transition().ease(d3.easeBounce).duration(2000).attr("width", (data[0] * 50) / 100 + 100);
-            bar2.transition().ease(d3.easeBounce).duration(2000).delay(2000).attr("width", (data[1] * 50) / 100 + 100);
+            bar1.transition().ease(d3.easeBounce).duration(2000).attr("height", (data[0] * 50) / 100 + 100);
+            bar2.transition().ease(d3.easeBounce).duration(2000).delay(2000).attr("height", (data[1] * 50) / 100 + 100);
 
         }
     </script>
