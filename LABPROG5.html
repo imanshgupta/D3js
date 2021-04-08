@@ -8,7 +8,9 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <title>Document</title>
     <style>
-
+        rect {
+            color: crimson;
+        }
     </style>
 </head>
 
@@ -23,10 +25,21 @@
 
         svg.selectAll("g").data(d).enter().append("g").append("rect").attr("width", width).attr("height", function h(d, i) {
             return d * scale
-        }).attr("fill", "black").attr("transform", function f(d, i) {
+        }).attr("fill", "yellow").attr("transform", function f(d, i) {
             return "translate(" + i * width + ",0)"
         })
-            .attr("style", "margin:50px")
+            .attr("style", "margin:50px").text(function (d) {
+                return d
+            }).append("text")
+
+            .attr("x", function (d) { return (d * scale); })
+
+            .attr("y", width / 2)
+
+            .attr("dy", ".35em")
+
+            .text(function (d) { return d; });
+
     </script>
 
 </body>
