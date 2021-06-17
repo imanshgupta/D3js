@@ -23,22 +23,32 @@
 
         var svg = d3.select("body").append("svg").attr("width", "10000").attr("height", "10000");
 
-        svg.selectAll("g").data(d).enter().append("g").append("rect").attr("width", width).attr("height", function h(d, i) {
+        svg.selectAll("g")
+        .data(d)
+        .enter()
+        .append("g")
+        .append("rect")
+        .attr("width", width)
+        .attr("height", function h(d, i) {
             return d * scale
-        }).attr("fill", "yellow").attr("transform", function f(d, i) {
-            return "translate(" + i * width + ",0)"
         })
-            .attr("style", "margin:50px").text(function (d) {
-                return d
-            }).append("text")
+        .attr("fill", "yellow").attr("transform", function f(d, i) {
+            return "translate(" + i * width + ",0)"
+        })//to bring each elemnt at side
 
-            .attr("x", function (d) { return (d * scale); })
 
-            .attr("y", width / 2)
+        //.attr("style", "margin:50px").text(function (d) {
+         //       return d
+         //   })//for showing text and adding margin to each element
+        .append("text")
 
-            .attr("dy", ".35em")
+        .attr("x", function (d) { return (d * scale); })
 
-            .text(function (d) { return d; });
+        .attr("y", width / 2)
+
+        .attr("dy", ".35em")
+
+        .text(function (d) { return d; });
 
     </script>
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>Document</title>
+    <style>
+        #graph{
+            width:500px;
+            height:500px;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+
+    </form>
+    <div id="graph"></div>
+<script>
+    d=[1,2];
+    var svg = d3.select("#graph").append("svg").attr('width','100%').attr('height',"100%");
+    svg.selectAll('g').data(d).enter().append('g').append('rect').attr('height',()=>{})
+</script>
+</body>
+</html>

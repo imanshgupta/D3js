@@ -25,11 +25,7 @@
         var svg = d3.select("body").append("svg").attr("width", width).attr("height", height * d.length);
         var bar = svg.selectAll("g").data(d).enter().append("g").append("rect").attr("height", "10").attr("width", function height(d, i) {
             return d * scale
-        }).attr("fill", "blue").attr("transform", function (d, i) {
-
-            return "translate(0," + i * height + ")";
-
-        });
+        }).attr("fill", "blue").attr("transform", function (d, i) {return "translate(0," + i * height + ")";}).text((d)=>{return d});
     </script>
 </body>
 
