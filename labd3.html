@@ -16,13 +16,34 @@
 </head>
 <body>
     <form action="">
-
+        <label for="text">Student name</label>
+        <input type="text" id="text" name="text">
+        <label for="marks">Marks</label>
+        <input type="number" name="marks" id="marks">
+        <input type="button" onclick=add(this.form) value="CLICK">   
     </form>
     <div id="graph"></div>
 <script>
-    d=[1,2];
+     d=[];
+    function add(form){
+        d.push({
+            "name":form.text.value,
+            "marks":form.marks.value
+            
+        })
+        document.getElementById("graph").innerHTML="";
+        chart()
+
+    }
+    function chart(){
+
+    
+    scale=10;
+    
     var svg = d3.select("#graph").append("svg").attr('width','100%').attr('height',"100%");
-    svg.selectAll('g').data(d).enter().append('g').append('rect').attr('height',()=>{})
-</script>
+    svg.selectAll('g').data(d).enter().append('g').append('rect').attr('width',"10px").attr('height',(d)=>{return d.marks*scale}).attr('fill','black')
+    .attr('x',(d,i)=>{return i*scale}).attr("y","0").style('padding',"50px")
+    }
+    </script>
 </body>
 </html>
